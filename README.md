@@ -55,17 +55,14 @@
 - 코드 생성
     - 이전 단계를 통해 분석된 소스 코드를 목표 기계에 맞는 어셈블리어나 기계어로 변환하는 단계이다.
     - 컴파일 타임 바인딩을 이용하는 시스템의 경우에는 코드 생성 단계에서 프로그램의 기억 장소 할당이 이루어진다.
----
 
 ## Set
----
 - ```Collection```의 인터페이스이다.
 - 중복을 허용하지 않는다.
 - Set의 모든 요소는 유니크해야한다.
 - 쉽게 Set에 요소를 추가할수 있으며 중복된 요소는 자동으로 제거된다.
 
 ## HashSet vs TreeSet vs LinkedHashSet
----
 1. HashSet
     - HashSet은 해쉬테이블을 사용해 구현되었다.
     - 요소들은 정렬되어 있지 않다.
@@ -84,3 +81,34 @@
     - 기본 메서드의 시간복잡도는 O(1)이다.
 
 ## Map
+ - Map은 ```HashMap```,```TreeMap```,```LinkedHashMap```,```HashTable``` 4가지 구현체로 이루어져있다.
+ - Map은 키, 값의 쌍을 제공한다.
+ - Map의 키는 유니크하며 값은 중복될수 있다.
+
+## HashMap vs TreeMap vs LinkedHashMap vs HashTable
+1. HashMap
+    - HashMap은 해쉬테이블로 구현되었다.
+    - 키와 값의 정렬이 없다.
+    - 비동기로서 thread-safe 하지 않다.
+    - 하나의 null키와 여러개의 null값을 가질수 있다.
+    - 시간 복잡도는 O(1)이다.
+
+2. TreeMap
+    - red-black 트리 구조를 기반으로 구현되었다.
+    - 키에 의해 정렬된다.
+    - 시간 복잡도는 O(log n)이다.
+    - red-black 트리
+        - 자가 균형 이진 탐색 트리로 편향 트리의 단점을 보완한 이진 탐색 트리이다.
+        - 동일한 노드의 수를 가질때 Depth를 최소화 하여 시간 복잡도를 줄이는 것이 주 목적이다.
+
+3. LinkedHashMap
+    - HashMap을 상속하여 HashMap의 특성을 가지고 있다.
+    - 들어온 순서를 보장한다.
+    - 시간 복잡도는 O(1)이다.
+
+4. HashTable
+    - HashMap과 달리 동기로 thread-safe하다.
+    - null키와 null값을 허용하지 않는다.
+    - 보조 해시 함수를 사용하지 않기 때문에 HashMap보다 해시 충돌이 더 많이 발생한다.
+    - thread동기화가 필요하지 않은경우 hashMap이 선호된다.
+    - 시간 복잡도는 O(1)이다.
